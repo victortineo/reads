@@ -8,6 +8,7 @@ import DeletePopUp from './DeletePopUp';
 
  
 class Post extends Component {
+    // optei por tratar do estado diretamente aqui, porque ele não faz parte da aplicação, apenas do componente e, portanto, é relevante apenas neste pedaço da aplicação.
     state = {
         modal: false
     }
