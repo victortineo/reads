@@ -1,0 +1,16 @@
+.select{
+    display: flex;
+    margin: 10px 0;
+    &__options{
+        border-radius: 10px;
+        border: 5px solid #99ddee;
+        margin-left: 10px;
+        outline: none;
+        color: #fff;
+        background-color: #99ddee;
+    }
+    &__option{
+        background-color: #fff;
+        color: #282828;
+    }
+}

@@ -1,0 +1,71 @@
+.post{
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f1f1f1;
+    box-shadow: 5px 5px 25px 0px rgba(#000, .6);
+    text-align: left;
+    &__title{
+        margin: 0;
+    }
+    &__options{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__categoryBadge{
+        display: block;
+        max-width: 60px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+        padding: 5px;
+        border-radius: 7px;
+        margin: 10px 0;
+        text-align: center;
+        line-height: 2;
+        text-transform: uppercase;
+        &--react{
+            background-color: #99ddee;
+        }
+        &--redux{
+            background-color: #34ecac;
+        }
+        &--udacity{
+            background-color: #920cae;
+        }
+    }
+    &__title{}
+    &__author{
+        font-size: 12px;
+        color: #999;
+        margin: 0;
+    }
+    &__date{
+        float: right;
+        font-style: normal;
+        font-size: 12px;
+    }
+    &__likes{
+        float: right;
+        &--positive{
+            color: #34ecac;
+        }
+        &--negative{
+            color: #ff0e0e
+        }
+    }
+    &__comments{
+        font-size: 12px;
+    }
+    &__body{
+        margin-top: 25px;
+        background-color: #fff;
+        padding: 10px;
+        color: #282828;
+    }
+    &__edit{
+        cursor: pointer;
+    }
+    &__delete{
+        cursor: pointer;
+    }
+}

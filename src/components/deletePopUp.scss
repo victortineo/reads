@@ -1,0 +1,25 @@
+.deletePopUp{
+    &__desc{
+        font-size: 12px;
+        font-style: italic;
+        color: #990000;
+    }
+    &__button{
+        cursor: pointer;
+        border: none;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 0 5px;
+        width: 55px;
+        &--yes{
+            background-color: red;
+        }
+
+        &--no{
+            background-color: #55dd00;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+.addForm{
+    &__row{
+        width: 100%;
+        display: flex;
+        justify-content: space-between
+    }
+    &__form{
+        display: flex;
+        flex-direction: column
+    }
+    &__input{
+        flex-basis: 49.5%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    &__select{
+        display: block;
+        width: 25%;
+        padding: 10px;
+        color:rgb(110, 110, 110);
+    }
+    &__title{
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        font-family: 'Courier New', Courier;
+        color: #99ddee;
+    }
+    &__text{
+        padding: 10px;
+        min-height: 100px;
+    }
+    &__submit{
+        padding: 5px 15px;
+        background-color: #fff;
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 700;
+        color: #99ddee;
+        border-radius: 5px;
+        box-shadow: 1px 1px 11px -3px #000;
+        margin-top: 7px;
+        font-family: 'Courier New', Courier;
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        border: none;
+    }
+}

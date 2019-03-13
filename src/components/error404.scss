@@ -1,0 +1,20 @@
+.error404{
+    &__title{
+        font-size: 28px;
+        text-align: center;
+        margin: 0;
+        color: #99eedd;
+    }
+    &__title-number{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: -14px; 
+        font-size: 180px;
+        &--feat{
+            color: #acaaaf;
+        }
+    }
+    &__desc{
+        text-align: center;
+        margin: 0;
+    }
+}

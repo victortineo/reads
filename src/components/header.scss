@@ -1,0 +1,28 @@
+.header{
+    padding: 25px;
+    background-color: #99ddee;
+    text-transform: uppercase;
+    &__logo{
+        letter-spacing: -5px;
+        font-size: 33px;
+        font-family: 'Courier New', Courier;
+        font-weight: 700;
+        color: #fff
+    }
+    &__logo-lesser{
+        font-weight: 100;
+    }
+    &__navigation{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__link{
+        color: #fff;
+        font-size: 1em;
+        transition: .5s ease;
+        &:hover{
+            font-size: 1.1em;
+        }
+    }
+}
