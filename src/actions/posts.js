@@ -79,16 +79,17 @@ export function handleEditPost (post) {
     }
 }
 
-function postCommentCounter (id){
+function postCommentCounter (id, value){
     return {
         type: COMMENT_COUNTER,
-        id
+        id,
+        value
     }
 }
 
-export function handlePostCommentCounter (id) {
+export function handlePostCommentCounter (id, value = 1) {
     return (dispatch) => {
-        dispatch(postCommentCounter(id))
+        dispatch(postCommentCounter(id, value))
     }
 }
 

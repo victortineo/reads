@@ -5,10 +5,10 @@ import {getInitialData} from '../api'
 export function handleInitialData () {
     return (dispatch) => {
       return getInitialData()
-        .then((res)  => (
-            dispatch(handleGetAllPosts(res[0])),
-            dispatch(handleGetCategories(res[1].categories))
-          )
-        )
-      }
+        .then((res)  => {
+          dispatch(handleGetAllPosts(res[0]))
+          dispatch(handleGetCategories(res[1].categories))
+        } 
+      )
     }
+  }

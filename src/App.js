@@ -24,11 +24,11 @@ class App extends Component {
             <Link className="newPost" to="/new/">Novo Post</Link>
             <Switch>
               <Route path='/' exact component={Home} />
-              <Route path='/post/:id' exact component={PostPage} />
+              <Route path='/:category/:id' exact component={PostPage} />
               <Route path='/new/' exact component={NewPost} />
               <Route path='/edit/post/:id' exact component={NewPost} />
               <Route path='/edit/comment/:id' exact component={(props) => <NewComment {...props} editing={true}/>} />
-              <Route path='/category/:category' exact component={CategoryView} />
+              <Route path='/:category' exact component={CategoryView} />
               <Route component={error404} />
             </Switch>
           </div>

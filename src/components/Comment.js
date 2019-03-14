@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import './comment.scss'
 import { Link, withRouter } from 'react-router-dom'
 import {handleAddVote, handleDisableComment} from '../actions/comments'
+import {handlePostCommentCounter} from '../actions/posts'
 import DeletePopUp from './DeletePopUp';
-
 
 
 class Comment extends Component {
@@ -27,6 +27,7 @@ class Comment extends Component {
     }
     handleDelete = (parentId) => {
         this.props.dispatch(handleDisableComment(this.props.id, parentId))
+        this.props.dispatch(handlePostCommentCounter(parentId, -1))
     }
     handlePopConfirm = () => {
         this.handleDelete(this.props.comment[0].parentId)

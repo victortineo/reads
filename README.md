@@ -1,9 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Reads React
+    A Reddit clone for Udacity React Nanodegree Course
 
-## For run this you need to:
-    clone this repository
-    run npm i
-    clone the API server from: 
-    access the `api` folder and run `node server` 
+## Requirements
+In order to get the app going, you need to first clone the API server avaliable [here](https://github.com/udacity/reactnd-project-readable-starter)
+To install it run `npm install`
+To start the API run `node server`
 
-API in: https://github.com/udacity/reactnd-project-readable-starter)
+## Installing
+    $ npm i
+
+## Start & watch
+    $ npm start
+
+## Simple build for production
+    $ npm run build
+
+## Avaliable API Methods
+    getAllPosts
+    getPost
+    getCategories
+    getCommentsByParent
+    getComment
+    addPost
+    addPostComment
+    votePost
+    voteComment
+    editPost
+    editPostComment
+    deletePost
+    deleteComment

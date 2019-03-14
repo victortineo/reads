@@ -92,7 +92,6 @@ class NewPost extends Component {
                         />
                     <div>
                     <button 
-                        className="btn"
                         type="submit"
                         className="addForm__submit"
                         disabled={text.trim() === ''}>

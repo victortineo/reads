@@ -48,8 +48,8 @@ class Post extends Component {
                 </div>
                 {post && (
                     <React.Fragment>
-                        <Link to={`/category/${post.category}`} className={`post__categoryBadge post__categoryBadge--${post.category}`}>{post.category}</Link>
-                        <Link to={`/post/${id}`} className="post__container">
+                        <Link to={`/${post.category}`} className={`post__categoryBadge post__categoryBadge--${post.category}`}>{post.category}</Link>
+                        <Link to={`/${post.category}/${id}`} className="post__container">
                         <h2 className="post__title">{post.title}</h2>
                         <p className="post__author">Por: {post.author} <em className="post__date">Postado em: {this.formatDate(post.timestamp)}</em></p>
                         </Link>

@@ -27,7 +27,6 @@ class NewComment extends Component {
         this.props.dispatch(handlePostCommentCounter(id))
     }
     editDispatches = (text, author, currentId, parentId) => {
-        console.log(parentId)
         this.props.dispatch(handleEditComment({text, author, id: currentId}, parentId))
         this.setState({
             toParent: true
@@ -39,7 +38,7 @@ class NewComment extends Component {
         const {text, author, currentId, parentId} = this.state
         const { id } = this.props
 
-        this.props.editing == true ? (
+        this.props.editing === true ? (
             this.editDispatches(text, author, currentId, parentId)   
         ) :
         (
@@ -83,7 +82,6 @@ class NewComment extends Component {
                         placeholder="O que achou deste post?" 
                         value={text}    
                         onChange={this.handleChange}
-                        className="textarea"
                         name="text"
                         className="addForm__text"
                         />

@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import Dashboard from './dashboard';
 
 
-class Home extends Component {
-  render() {
+const Home = () => {
     return (
       <div className="Home">
         <Dashboard />
       </div>
     );
-  }
 }
 
-export default connect()(Home)
+export default Home

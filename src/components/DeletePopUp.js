@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
+import React from 'react'
 import './deletePopUp.scss'
+
 const DeletePopUp = (props) => {
     return (
         <div className="deletePopUp">

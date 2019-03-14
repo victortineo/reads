@@ -10,8 +10,9 @@ export default function posts (state = {}, action){
             const getPost = Object.values(state)
             getPost.map(function(post, i){
                 if(post.id === action.post.id){
-                    getPost[i] = action.post 
+                    return action.post 
                 }
+                return post
             }) 
             return {
                 ...getPost,
@@ -23,39 +24,51 @@ export default function posts (state = {}, action){
             
         }
         case EDIT_POST : 
-            const newState = Object.values(state)
-            newState.map(function(post, i){
+            const newState = Object.values(state).map(function(post, i){
                 if(post.id === action.post.id){
-                    newState[i] = action.post 
+                    return action.post 
                 }
+                return post
             }) 
         return {
             ...newState,
         }
         case COMMENT_COUNTER :
-            let nextState = Object.values(state)
-            nextState.map(function(post, i){
+            const nextState = Object.values(state).map(function(post, i){
                 if(post.id === action.id){
-                    nextState[i].commentCount = nextState[i].commentCount + 1
+                    return {
+                        ...post,
+                        commentCount: post.commentCount + action.value
+                    }
                 }
+                return post
             }) 
         return {
-            ...state
+            ...nextState
         }
         case ADD_POST_VOTE : 
-            let newVote = Object.values(state)
+            const newVote = Object.values(state)
             newVote.map(function(post, i){
                 if(post.id === action.post.id){
-                    newVote[i] = action.post 
+                    return action.post 
                 }
+                return post
             })
             return {
                 ...newVote
             }
         case DISABLE_POST:
-            state = Object.values(state).filter(obj => obj.id !== action.id)
+            const disabled = Object.values(state).map(function(post, i){
+                if(post.id === action.id){
+                    return {
+                        ...post,
+                        deleted: true
+                    }
+                }
+                return post
+            })
             return {
-                ...state
+                ...disabled
             }
         default:
             return state
