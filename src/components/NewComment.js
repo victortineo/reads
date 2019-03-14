@@ -13,17 +13,18 @@ class NewComment extends Component {
         author: '',
         currentId: '',
         parentId: '',
-        toParent: false
+        toParent: false,
+        replyToAuthor: '',
+        replyTo: {}
     }
     handleChange = (e) => {
         const text = e.target.value
-
         this.setState({
             [e.target.name]: text
         })
     }
-    addDispatches = (text, author, id) => {
-        this.props.dispatch(handleAddComment({text, author}, id))    
+    addDispatches = (text, author, id, replyTo = '') => {
+        this.props.dispatch(handleAddComment({text, author, replyTo}, id))    
         this.props.dispatch(handlePostCommentCounter(id))
     }
     editDispatches = (text, author, currentId, parentId) => {
@@ -35,18 +36,28 @@ class NewComment extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const {text, author, currentId, parentId} = this.state
+        const {text, author, currentId, parentId, replyTo} = this.state
         const { id } = this.props
 
         this.props.editing === true ? (
             this.editDispatches(text, author, currentId, parentId)   
         ) :
         (
-            this.addDispatches(text, author, id)   
+            this.addDispatches(text, author, id, replyTo.id)   
         )
         this.setState({
-            text: ''
+            text: '' 
         })
+    }
+    componentDidUpdate = (prevProps) => {
+        if(prevProps !== this.props){
+            this.props.replyTo && (
+                this.setState({
+                    replyTo: this.props.replyTo,
+                    replyToAuthor: this.props.replyTo.author
+                })
+            )
+        }
     }
     componentDidMount = () => {   
         this.props.editing && (
@@ -62,7 +73,7 @@ class NewComment extends Component {
         )
     }
     render() {
-        const {text, author, parentId, toParent} = this.state
+        const {text, author, parentId, toParent, replyToAuthor, replyTo} = this.state
         if(toParent === true){
             return <Redirect to={`/post/${parentId}`} />
         }
@@ -70,6 +81,14 @@ class NewComment extends Component {
             <div className="addForm">
                 <h3 className="addForm__title">Sobre o que você esta pensando?</h3>
                 <form className='addForm__form' onSubmit={this.handleSubmit}>
+                    <span className="addForm__replyTo">Resposta à: {replyToAuthor}</span>
+                    <input
+                        type="text"
+                        value={replyToAuthor}
+                        name="replyToTitle"
+                        disabled
+                        className="addForm__input"
+                    />
                     <input
                         type="text"
                         value={author}

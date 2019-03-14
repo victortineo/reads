@@ -47,8 +47,7 @@ export default function posts (state = {}, action){
             ...nextState
         }
         case ADD_POST_VOTE : 
-            const newVote = Object.values(state)
-            newVote.map(function(post, i){
+            const newVote = Object.values(state).map(post => {
                 if(post.id === action.post.id){
                     return action.post 
                 }

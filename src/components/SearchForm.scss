@@ -1,0 +1,11 @@
+.searchForm{
+    &__submit{
+        padding: 3px 10px;
+        border: none;
+        color: #fff;
+        text-transform: uppercase;
+        border-radius: 0 25px 25px 0;
+        background-color: #99ddee;
+        outline: none;
+    }
+}

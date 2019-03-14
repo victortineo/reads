@@ -10,6 +10,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
             <SelectOrder />
+            {this.props.posts.length > 0 ?
             <ul className="dashboard__posts">
                 {this.props.posts.map((post) => (
                     <li key={post.id}>
@@ -17,16 +18,18 @@ class Dashboard extends Component {
                     </li>
                 ))}
             </ul>
+                : 'Nenhum post disponível' 
+            }
       </div>
     );
   }
 }
 
-
-function mapStateToProps({posts, order}, props){
+function mapStateToProps({posts, order, search}, props){
     const objs = orderBy(Object.values(posts), order.orderBy).filter(obj => obj.deleted === false)
+    const result = orderBy(Object.values(search), order.orderBy).filter(obj => obj.deleted === false)
     return {
-        posts: props.category ? objs.filter(post => post.category === props.category) : objs
+        posts: props.searchPage ? result : props.category ? objs.filter(post => post.category === props.category) : objs
     }
 }
 

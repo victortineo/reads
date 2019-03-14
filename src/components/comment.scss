@@ -26,6 +26,18 @@
             color: #ff0e0e
         }
     }
+    &__replyTo{
+        font-style: italic;
+        background-color: #cecece;
+        padding: 5px;
+    }
+    &__replyTo-author{
+        font-size: 12px;
+    }
+    &__replyTo-body{
+        margin: 0;
+        font-size: 14px;
+    }
     &__body{
         margin-top: 25px;
         background-color: #fff;

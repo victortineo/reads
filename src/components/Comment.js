@@ -39,6 +39,7 @@ class Comment extends Component {
     }
     render() {
         const comment = this.props.comment[0]
+        const replyTo = this.props.replyTo[0]
         return (
             <div className="comment">
                 <div className="post__options">
@@ -50,6 +51,9 @@ class Comment extends Component {
                 {comment && (
                     <React.Fragment>
                         <p className="comment__author">Por: {comment.author} <em className="comment__date">Em: {this.formatDate(comment.timestamp)}</em></p>
+                        <span className="comments__replyTo" onClick={this.props.handleReplyTo ?  () => this.props.handleReplyTo(comment) : false}>
+                            Responder
+                        </span>
                         <span className="comment__likes">
                             {comment.voteScore}
                             <span 
@@ -64,6 +68,12 @@ class Comment extends Component {
                             </span>    
                         </span>
                         <div className="comment__body">
+                            {replyTo && 
+                                <div className="comment__replyTo">
+                                    <span className="comment__replyTo-author">Autor: {replyTo.author}</span>
+                                    <p className="comment__replyTo-body">{replyTo.body}</p>
+                                </div>
+                            }
                             {comment.body}
                         </div>
                     </React.Fragment>
@@ -77,8 +87,11 @@ class Comment extends Component {
 }
 
 function mapStateToProps({comments}, props){
+    const comment = comments[props.currentPost].filter(comment => comment.id === props.id);
+    const replyTo = comments[props.currentPost].filter(cmt => cmt.id === comment[0].replyTo);
     return {
-        comment: comments[props.currentPost].filter(comment => comment.id === props.id)
+        comment,
+        replyTo
     }
 }
 

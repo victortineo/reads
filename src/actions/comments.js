@@ -38,7 +38,8 @@ export function handleAddComment (comment, parentID) {
             timestamp: Date.now(),
             body: comment.text,
             author: comment.author,
-            parentId: parentID
+            parentId: parentID,
+            replyTo: comment.replyTo
         }, parentID)
         .then((comment) => dispatch(addComment(comment, parentID)))
     }

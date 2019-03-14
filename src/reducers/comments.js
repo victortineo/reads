@@ -24,15 +24,17 @@ export default function posts (state = {}, action){
                 ...newComment
             }
         case ADD_COMMENT_VOTE : 
-            state[action.comment.parentId].map((comment, i) => {
+            const newVote = state[action.comment.parentId].map((comment, i) => {
                 if(comment.id === action.comment.id){
-                    return action.comment
+                    return {
+                        ...action.comment,
+                    }
                 }
                 return comment
-                }
-            )
+            })
             return {
-                ...state
+                ...state,
+                [action.comment.parentId]: newVote
             }
         case DISABLE_COMMENT:
                 const disabled = {

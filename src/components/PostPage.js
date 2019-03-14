@@ -11,13 +11,19 @@ import NotFound from './error404'
 
 class PostPage extends Component {
     state = {
-        error404: false
+        error404: false,
+        replyingTo: {}
     }
     componentDidMount = () => {
         this.props.dispatch(handleGetByParent(this.props.match.params.id))
         this.props.dispatch(handleGetPost(this.props.match.params.id))
         .then(res => res.post.error ? this.setState({error404: true}) : Object.keys(res.post).length === 0 && res.post.constructor === Object ? this.setState({error404: true}) : ''   )
         
+    }
+    handleReplyTo = (comment) => {
+        this.setState({
+            replyingTo: comment
+        })
     }
     render(){
         const {id, post} = this.props
@@ -33,11 +39,11 @@ class PostPage extends Component {
                 <ul className="postPage__comments-wrapper">
                 {this.props.comments && this.props.comments.map(comment => 
                     <li key={comment.id}>
-                        <Comment id={comment.id} currentPost={id} />
+                        <Comment handleReplyTo={this.handleReplyTo} id={comment.id} currentPost={id} />
                     </li>
                 )}
                 </ul>
-                <NewComment id={id} />
+                <NewComment replyTo={this.state.replyingTo} id={id} />
             </div>
         )
     }
